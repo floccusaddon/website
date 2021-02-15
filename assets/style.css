@@ -1,0 +1,196 @@
+body {
+    font-family: "Comfortaa", sans-serif;
+    line-height: 1.5;
+    margin: 0;
+}
+li {
+    margin-bottom: 10px;
+}
+.container {
+    color: #1a435c;
+}
+a,
+a:link,
+a:visited,
+a:active,
+h1,
+h2,
+h3 {
+    color: #3893cc;
+}
+h1,
+h2,
+h3 {
+    margin-top: 40px;
+}
+.button {
+    border-radius: 10px;
+    border: #235d81 1px solid;
+    background-color: #3893cc;
+    color: white !important;
+    text-decoration: none;
+    padding: 10px;
+}
+.button:hover, .button:focus {
+    background-color: #3ca3e4;
+}
+.mdi {
+    color: #3ca3e4;
+}
+.container > * {
+    max-width: 800px;
+    margin: auto;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}
+.header {
+    box-sizing: border-box;
+    padding-left: 88px !important;
+    background-repeat: no-repeat;
+    background-image: url("https://raw.githubusercontent.com/marcelklehr/floccus/develop/icons/logo_128.png");
+    background-position: 0px 55px;
+    background-size: 70px 70px;
+    color: #3893cc;
+    width: 200px;
+}
+.header h1 {
+    margin: 0;
+    font-size: 45px;
+    color: #08d;
+}
+.header ul {
+    padding: 0;
+    position: relative;
+    left: -170px;
+    width: 450px;
+    margin-top: 50px;
+}
+.header ul li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 20px;
+}
+.header ul a:link {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.header ul a:hover,
+.header ul a:focus{
+    text-decoration: underline;
+}
+.toc ul {
+    padding-left: 0px;
+}
+.toc ul li {
+    list-style: none;
+}
+.text {
+    padding: 10px 0;
+    position: relative;
+}
+.text img {
+    width: 100%;
+}
+.description {
+    box-sizing: border-box;
+    padding-left: 450px;
+    min-height: 350px;
+    font-size: 1.2em;
+    background-repeat: no-repeat;
+    background-image: url("./img/undraw_in_sync.svg");
+    background-size: 420px;
+    background-position: 0 41px;
+}
+@media screen and (max-width: 800px) {
+    .description {
+        padding-left: 10px;
+        padding-top: 70% !important;
+        background-size: 75%;
+        background-position: center 60px;
+    }
+}
+.screenshot {
+    min-height: 400px;
+    background-repeat: no-repeat;
+    background-image: url("https://raw.githubusercontent.com/marcelklehr/floccus/develop/img/screen_chrome_wide.png");
+    background-size: cover;
+    background-position: right top;
+    background-attachment: fixed;
+    background-color: #235d81;
+    box-shadow: #000000aa 0 0 15px inset;
+}
+.donate {
+    box-sizing: border-box;
+    min-height: 350px;
+    background-repeat: no-repeat;
+    background-image: url("./img/undraw_love.svg");
+    background-size: 440px;
+    background-position: 270px 118px;
+    padding-right: 310px;
+}
+.backends {
+    background-repeat: no-repeat;
+    background-image: url("./img/undraw_devices.svg");
+    background-size: 440px;
+    background-position: 100px 500px;
+    padding-bottom: 375px !important;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 800px) {
+    .backends {
+        padding-bottom: 0px !important;
+    }
+}
+.benchmarks .legend span {
+    display: block;
+}
+.footer {
+}
+.bg-blue {
+    background-color: #f0f9ff;
+}
+.bg-dark-blue {
+    background-color: #ddf2fe;
+}
+.featureGrid {
+    display: flex;
+    flex-wrap: wrap;
+}
+.featureGrid .box {
+    width: 230px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+    hyphens: auto;
+}
+.backends .featureGrid .box {
+    margin-right: 40px;
+}
+.backends .featureGrid .box:last-child {
+    margin-right: 0px;
+}
+.features .featureGrid .box {
+    text-align: left;
+}
+.featureGrid .box .mdi::before {
+    display: block;
+    font-size: 150px;
+    text-align: center;
+    line-height: 165px;
+}
+@media screen and (max-width: 800px) {
+    .backends .featureGrid .box {
+        width: auto;
+        margin-right: 0px;
+    }
+    .text,
+    .description {
+        padding: 10px 50px;
+    }
+    .text.bg {
+        padding: 10px 30px;
+        padding-top: 70% !important;
+        background-size: 75%;
+        background-position: center 60px;
+    }
+}

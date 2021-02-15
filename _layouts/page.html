@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>floccus - browser bookmarks sync</title>
-    <link rel="shortcut icon" href="img/logo_32.png" />
+    <title>{{ page.title }} | floccus - browser bookmarks sync</title>
+    <link rel="shortcut icon" href="assets/img/logo_32.png" />
     <link
       href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap"
       rel="stylesheet"
@@ -12,171 +12,31 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/style.css">
     <meta
       name="viewport"
       content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"
     />
-    <style>
-      body {
-        font-family: "Comfortaa", sans-serif;
-        line-height: 1.5;
-        margin: 0;
-      }
-      li {
-        margin-bottom: 10px;
-      }
-      .container {
-        color: #1a435c;
-      }
-      a,
-      a:link,
-      a:visited,
-      a:active,
-      h1,
-      h2,
-      h3 {
-        color: #3893cc;
-      }
-      .mdi {
-        color: #3ca3e4;
-      }
-      .container > * {
-        max-width: 800px;
-        margin: auto;
-        padding-top: 60px !important;
-        padding-bottom: 60px !important;
-      }
-      .header {
-        box-sizing: border-box;
-        margin: 60px auto;
-        padding-left: 85px !important;
-        background-repeat: no-repeat;
-        background-image: url("https://raw.githubusercontent.com/marcelklehr/floccus/develop/icons/logo_128.png");
-        background-position: 10px 45px;
-        background-size: 64px 64px;
-        color: #3893cc;
-        width: 200px;
-      }
-      .header h1 {
-        margin: 0;
-        font-size: 28px;
-      }
-      .text {
-        padding: 10px 0;
-        position: relative;
-      }
-      .text img {
-        width: 100%;
-      }
-      .description {
-        box-sizing: border-box;
-        padding-left: 450px;
-        min-height: 350px;
-        font-size: 1.2em;
-        background-repeat: no-repeat;
-        background-image: url("./img/undraw_in_sync.svg");
-        background-size: 420px;
-        background-position: 0 41px;
-      }
-      @media screen and (max-width: 800px) {
-        .description {
-          padding-left: 10px;
-          padding-top: 70% !important;
-          background-size: 75%;
-          background-position: center 60px;
-        }
-      }
-      .screenshot {
-        min-height: 400px;
-        background-repeat: no-repeat;
-        background-image: url("https://raw.githubusercontent.com/marcelklehr/floccus/develop/img/screen_chrome_wide.png");
-        background-size: cover;
-        background-position: right top;
-        background-attachment: fixed;
-        background-color: #235d81;
-        box-shadow: #000000aa 0 0 15px inset;
-      }
-      .donate {
-        box-sizing: border-box;
-        min-height: 350px;
-        background-repeat: no-repeat;
-        background-image: url("./img/undraw_love.svg");
-        background-size: 440px;
-        background-position: 270px 118px;
-        padding-right: 310px;
-      }
-      .backends {
-        background-repeat: no-repeat;
-        background-image: url("./img/undraw_devices.svg");
-        background-size: 440px;
-        background-position: 100px 500px;
-        padding-bottom: 375px !important;
-        box-sizing: border-box;
-      }
-      @media screen and (max-width: 800px) {
-        .backends {
-          padding-bottom: 0px !important;
-        }
-      }
-      .benchmarks .legend span {
-        display: block;
-      }
-      .footer {
-      }
-      .bg-blue {
-        background-color: #f0f9ff;
-      }
-      .bg-dark-blue {
-        background-color: #ddf2fe;
-      }
-      .featureGrid {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      .featureGrid .box {
-        width: 230px;
-        margin-right: 20px;
-        margin-bottom: 20px;
-        text-align: justify;
-        hyphens: auto;
-      }
-      .backends .featureGrid .box {
-        margin-right: 40px;
-      }
-      .backends .featureGrid .box:last-child {
-        margin-right: 0px;
-      }
-      .features .featureGrid .box {
-        text-align: left;
-      }
-      .featureGrid .box .mdi::before {
-        display: block;
-        font-size: 150px;
-        text-align: center;
-        line-height: 165px;
-      }
-      @media screen and (max-width: 800px) {
-        .backends .featureGrid .box {
-          width: auto;
-          margin-right: 0px;
-        }
-        .text,
-        .description {
-          padding: 10px 50px;
-        }
-        .text.bg {
-          padding: 10px 30px;
-          padding-top: 70% !important;
-          background-size: 75%;
-          background-position: center 60px;
-        }
-      }
-    </style>
   </head>
   <body>
     <div class="container">
+      <div class="header">
+        <h1>floccus</h1>
+        {% include menu.html %}
+      </div>
+    </div>
+    <div class="container bg-blue">
+      <div class="text">
+        <h1>{{ page.title }}</h1>
+        <p>{{ page.description }}</p>
+        <div class="toc">
+        {% include toc.html html=content h_max=1 %}
+        </div>
+      </div>
+    </div>
+    <div class="container">
          <div class="text">
-           {{content}}
+           {{ content }}
          </div>
     </div>
     <div class="container bg-blue">
@@ -188,5 +48,35 @@
         </p>
       </div>
     </div>
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+      var _paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+      (function() {
+        var u = "https://matomo.theanalphabet.com/";
+        _paq.push(["setTrackerUrl", u + "matomo.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d = document,
+                g = d.createElement("script"),
+                s = d.getElementsByTagName("script")[0];
+        g.type = "text/javascript";
+        g.async = true;
+        g.defer = true;
+        g.src = u + "matomo.js";
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+    <noscript
+    ><p>
+      <img
+              src="https://matomo.theanalphabet.com/matomo.php?idsite=6&amp;rec=1"
+              style="border:0;"
+              alt=""
+      /></p
+    ></noscript>
+    <!-- End Matomo Code -->
   </body>
 </html>

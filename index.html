@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>floccus - browser bookmarks sync</title>
-    <link rel="shortcut icon" href="img/logo_32.png" />
+    <link rel="shortcut icon" href="assets/img/logo_32.png" />
     <link
       href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap"
       rel="stylesheet"
@@ -12,172 +12,18 @@
       name="viewport"
       content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"
     />
-    <style>
-      body {
-        font-family: "Comfortaa", sans-serif;
-        line-height: 1.5;
-        margin: 0;
-      }
-      li {
-        margin-bottom: 10px;
-      }
-      .container {
-        color: #1a435c;
-      }
-      a,
-      a:link,
-      a:visited,
-      a:active,
-      h1,
-      h2,
-      h3 {
-        color: #3893cc;
-      }
-      .mdi {
-        color: #3ca3e4;
-      }
-      .container > * {
-        max-width: 900px;
-        margin: auto;
-        padding-top: 60px !important;
-        padding-bottom: 60px !important;
-      }
-      .header {
-        box-sizing: border-box;
-        margin: 60px auto;
-        padding-left: 85px !important;
-        background-repeat: no-repeat;
-        background-image: url("https://raw.githubusercontent.com/marcelklehr/floccus/develop/icons/logo_128.png");
-        background-position: 10px 45px;
-        background-size: 64px 64px;
-        color: #3893cc;
-        width: 200px;
-      }
-      .header h1 {
-        margin: 0;
-        font-size: 28px;
-      }
-      .text {
-        padding: 10px 0;
-        position: relative;
-      }
-      .text img {
-        width: 100%;
-      }
-      .description {
-        box-sizing: border-box;
-        padding-left: 450px;
-        min-height: 350px;
-        font-size: 1.2em;
-        background-repeat: no-repeat;
-        background-image: url("./img/undraw_in_sync.svg");
-        background-size: 420px;
-        background-position: 0 41px;
-      }
-      @media screen and (max-width: 800px) {
-        .description {
-          padding-left: 10px;
-          padding-top: 70% !important;
-          background-size: 75%;
-          background-position: center 60px;
-        }
-      }
-      .screenshot {
-        min-height: 400px;
-        background-repeat: no-repeat;
-        background-image: url("https://raw.githubusercontent.com/marcelklehr/floccus/develop/img/screen_chrome_wide.png");
-        background-size: cover;
-        background-position: right top;
-        background-attachment: fixed;
-        background-color: #235d81;
-        box-shadow: #000000aa 0 0 15px inset;
-      }
-      .donate {
-        box-sizing: border-box;
-        min-height: 350px;
-        background-repeat: no-repeat;
-        background-image: url("./img/undraw_love.svg");
-        background-size: 440px;
-        background-position: 470px 118px;
-        padding-right: 310px;
-      }
-      .backends {
-        background-repeat: no-repeat;
-        background-image: url("./img/undraw_devices.svg");
-        background-size: 440px;
-        background-position: 100px 500px;
-        padding-bottom: 375px !important;
-        box-sizing: border-box;
-      }
-      @media screen and (max-width: 900px) {
-        .backends {
-          padding-bottom: 0px !important;
-        }
-      }
-      .benchmarks .legend span {
-        display: block;
-      }
-      .footer {
-      }
-      .bg-blue {
-        background-color: #f0f9ff;
-      }
-      .bg-dark-blue {
-        background-color: #ddf2fe;
-      }
-      .featureGrid {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      .featureGrid .box {
-        width: 260px;
-        margin-right: 40px;
-        margin-bottom: 20px;
-        text-align: justify;
-        hyphens: auto;
-      }
-      .backends .featureGrid .box {
-        margin-right: 40px;
-      }
-      .backends .featureGrid .box:last-child {
-        margin-right: 0px;
-      }
-      .features .featureGrid .box {
-        text-align: left;
-      }
-      .features h3 {
-        color: #777777;
-        text-align: center;
-        hyphens: none;
-      }
-      .featureGrid .box .mdi::before {
-        display: block;
-        font-size: 150px;
-        text-align: center;
-        line-height: 165px;
-      }
-      @media screen and (max-width: 900px) {
-        .backends .featureGrid .box {
-          width: auto;
-          margin-right: 0px;
-        }
-        .text,
-        .description {
-          padding: 10px 50px;
-        }
-        .text.bg {
-          padding: 10px 30px;
-          padding-top: 70% !important;
-          background-size: 75%;
-          background-position: center 60px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
   </head>
   <body>
     <div class="container">
       <div class="header">
         <h1>floccus</h1>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="start.html">Getting started</a></li>
+          <li><a href="download.html">Download</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
       </div>
     </div>
     <div class="container bg-blue">
@@ -187,32 +33,8 @@
           self-hosted server of your choosing. Full control, full privacy, full
           access to your favorite experiences on the web.
         </p>
-        <a href="https://addons.mozilla.org/en-US/firefox/addon/floccus/"
-          ><img
-            src="https://img.shields.io/badge/Mozilla Firefox-addon-orange?style=for-the-badge&logo=firefox"
-            alt="floccus on Mozilla addons"
-            style="height: 27px;"
-        /></a>
-        <a
-          href="https://chrome.google.com/webstore/detail/floccus/fnaicdffflnofjppbagibeoednhnbjhg"
-          ><img
-            src="https://img.shields.io/badge/Google Chrome-extension-green?style=for-the-badge&logo=chromium"
-            alt="floccus on Chrome Webstore"
-            style="height: 27px;"
-        /></a>
-        <a
-          href="https://microsoftedge.microsoft.com/addons/detail/gjkddcofhiifldbllobcamllmanombji"
-          ><img
-            src="https://img.shields.io/badge/Microsoft Edge-Extension-blue?style=for-the-badge&logo=edge"
-            alt="floccus Microsoft Edge Addons"
-            style="height: 27px;"
-        /></a>
-        <a href="https://github.com/marcelklehr/floccus/releases"
-          ><img
-            alt="Latest GitHub release"
-            src="https://img.shields.io/github/v/release/marcelklehr/floccus?style=for-the-badge&label=Release&logo=github"
-            style="height: 27px;"
-        /></a>
+        <p>&nbsp</p>
+        <a href="download.html" class="button">Download floccus</a>
       </div>
     </div>
 
