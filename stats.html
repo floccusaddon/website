@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>floccus - browser bookmarks sync</title>
+    <link rel="shortcut icon" href="img/logo_32.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://metricsgraphicsjs.org/dist/metricsgraphics.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <meta
+      name="viewport"
+      content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <style>
+      body {
+        font-family: "Comfortaa", sans-serif;
+        line-height: 1.5;
+        margin: 0;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      .container {
+        color: #1a435c;
+      }
+      a,
+      a:link,
+      a:visited,
+      a:active,
+      h1,
+      h2,
+      h3 {
+        color: #3893cc;
+      }
+      .mdi {
+        color: #3ca3e4;
+      }
+      .container > * {
+        max-width: 800px;
+        margin: auto;
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+      }
+      .header {
+        box-sizing: border-box;
+        margin: 60px auto;
+        padding-left: 85px !important;
+        background-repeat: no-repeat;
+        background-image: url("https://raw.githubusercontent.com/marcelklehr/floccus/develop/icons/logo_128.png");
+        background-position: 10px 45px;
+        background-size: 64px 64px;
+        color: #3893cc;
+        width: 200px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+      .text {
+        padding: 10px 0;
+        position: relative;
+      }
+      .text img {
+        width: 100%;
+      }
+      .description {
+        box-sizing: border-box;
+        padding-left: 450px;
+        min-height: 350px;
+        font-size: 1.2em;
+        background-repeat: no-repeat;
+        background-image: url("./img/undraw_in_sync.svg");
+        background-size: 420px;
+        background-position: 0 41px;
+      }
+      @media screen and (max-width: 800px) {
+        .description {
+          padding-left: 10px;
+          padding-top: 70% !important;
+          background-size: 75%;
+          background-position: center 60px;
+        }
+      }
+      .screenshot {
+        min-height: 400px;
+        background-repeat: no-repeat;
+        background-image: url("https://raw.githubusercontent.com/marcelklehr/floccus/develop/img/screen_chrome_wide.png");
+        background-size: cover;
+        background-position: right top;
+        background-attachment: fixed;
+        background-color: #235d81;
+        box-shadow: #000000aa 0 0 15px inset;
+      }
+      .donate {
+        box-sizing: border-box;
+        min-height: 350px;
+        background-repeat: no-repeat;
+        background-image: url("./img/undraw_love.svg");
+        background-size: 440px;
+        background-position: 270px 118px;
+        padding-right: 310px;
+      }
+      .backends {
+        background-repeat: no-repeat;
+        background-image: url("./img/undraw_devices.svg");
+        background-size: 440px;
+        background-position: 100px 500px;
+        padding-bottom: 375px !important;
+        box-sizing: border-box;
+      }
+      @media screen and (max-width: 800px) {
+        .backends {
+          padding-bottom: 0px !important;
+        }
+      }
+      .benchmarks .legend span {
+        display: block;
+      }
+      .footer {
+      }
+      .bg-blue {
+        background-color: #f0f9ff;
+      }
+      .bg-dark-blue {
+        background-color: #ddf2fe;
+      }
+      .featureGrid {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .featureGrid .box {
+        width: 230px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        text-align: justify;
+        hyphens: auto;
+      }
+      .backends .featureGrid .box {
+        margin-right: 40px;
+      }
+      .backends .featureGrid .box:last-child {
+        margin-right: 0px;
+      }
+      .features .featureGrid .box {
+        text-align: left;
+      }
+      .featureGrid .box .mdi::before {
+        display: block;
+        font-size: 150px;
+        text-align: center;
+        line-height: 165px;
+      }
+      @media screen and (max-width: 800px) {
+        .backends .featureGrid .box {
+          width: auto;
+          margin-right: 0px;
+        }
+        .text,
+        .description {
+          padding: 10px 50px;
+        }
+        .text.bg {
+          padding: 10px 30px;
+          padding-top: 70% !important;
+          background-size: 75%;
+          background-position: center 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+         <div class="text benchmarks">
+           <h2>Performance monitoring</h2>
+           <p>
+             These graphs measure the evolution of performance over the course of
+             development. They show the last 50 commits to the source repository;
+             the last data point does not necessarily correspond to the latest
+             release. Lower is better. Changes in measured execution time may
+             correspond to either an actual change of performance, a change in
+             measurement methodology or a change in testing conditions. The first
+             token in the descriptions is the backend used.
+           </p>
+           <div class="test-graphs"></div>
+           <div class="test-normalized-graphs"></div>
+           <div class="benchmark-default-graphs"></div>
+           <div class="benchmark-normalized-graphs"></div>
+         </div>
+       </div>
+
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+       <script src="https://d3js.org/d3.v4.min.js"></script>
+       <script src="https://metricsgraphicsjs.org/dist/metricsgraphics.min.js"></script>
+       <script>
+         const COLORS = {
+           RedLighten2: "#E57373",
+           RedLighten1: "#EF5350",
+           Red: "#F44336",
+           RedDarken1: "#E53935",
+           RedDarken2: "#D32F2F",
+           RedDarken3: "#C62828",
+           RedDarken4: "#B71C1C",
+           RedAccent1: "#FF8A80",
+           RedAccent2: "#FF5252",
+           RedAccent3: "#FF1744",
+           RedAccent4: "#D50000",
+           PinkLighten3: "#f48fb1",
+           PinkLighten2: "#f06292",
+           PinkLighten1: "#ec407a",
+           Pink: "#e91e63",
+           PinkDarken1: "#d81b60",
+           PinkDarken2: "#c2185b",
+           PinkDarken3: "#ad1457",
+           PinkDarken4: "#880e4f",
+           PinkAccent1: "#ff80ab",
+           PinkAccent2: "#ff4081",
+           PinkAccent3: "#f50057",
+           PinkAccent4: "#c51162",
+           PurpleLighten3: "#ce93d8",
+           PurpleLighten2: "#ba68c8",
+           PurpleLighten1: "#ab47bc",
+           Purple: "#9c27b0",
+           PurpleDarken1: "#8e24aa",
+           PurpleDarken2: "#7b1fa2",
+           PurpleDarken3: "#6a1b9a",
+           PurpleDarken4: "#4a148c",
+           PurpleAccent1: "#ea80fc",
+           PurpleAccent2: "#e040fb",
+           PurpleAccent3: "#d500f9",
+           PurpleAccent4: "#a0f",
+           DeepPurpleLighten3: "#b39ddb",
+           DeepPurpleLighten2: "#9575cd",
+           DeepPurpleLighten1: "#7e57c2",
+           DeepPurple: "#673ab7",
+           DeepPurpleDarken1: "#5e35b1",
+           DeepPurpleDarken2: "#512da8",
+           DeepPurpleDarken3: "#4527a0",
+           DeepPurpleDarken4: "#311b92",
+           DeepPurpleAccent1: "#b388ff",
+           DeepPurpleAccent2: "#7c4dff",
+           DeepPurpleAccent3: "#651fff",
+           DeepPurpleAccent4: "#6200ea",
+           IndigoLighten3: "#9fa8da",
+           IndigoLighten2: "#7986cb",
+           IndigoLighten1: "#5c6bc0",
+           Indigo: "#3f51b5",
+           IndigoDarken1: "#3949ab",
+           IndigoDarken2: "#303f9f",
+           IndigoDarken3: "#283593",
+           IndigoDarken4: "#1a237e",
+           IndigoAccent1: "#8c9eff",
+           IndigoAccent2: "#536dfe",
+           IndigoAccent3: "#3d5afe",
+           IndigoAccent4: "#304ffe",
+           BlueLighten3: "#90CAF9",
+           BlueLighten2: "#64B5F6",
+           BlueLighten1: "#42A5F5",
+           Blue: "#2196F3",
+           BlueDarken1: "#1E88E5",
+           BlueDarken2: "#1976D2",
+           BlueDarken3: "#1565C0",
+           BlueDarken4: "#0D47A1",
+           BlueAccent1: "#82B1FF",
+           BlueAccent2: "#448AFF",
+           BlueAccent3: "#2979FF",
+           BlueAccent4: "#2962FF",
+           LightBlueLighten3: "#81d4fa",
+           LightBlueLighten2: "#4fc3f7",
+           LightBlueLighten1: "#29b6f6",
+           LightBlue: "#03a9f4",
+           LightBlueDarken1: "#039be5",
+           LightBlueDarken2: "#0288d1",
+           LightBlueDarken3: "#0277bd",
+           LightBlueDarken4: "#01579b",
+           LightBlueAccent1: "#80d8ff",
+           LightBlueAccent2: "#40c4ff",
+           LightBlueAccent3: "#00b0ff",
+           LightBlueAccent4: "#0091ea",
+           CyanLighten3: "#80deea",
+           CyanLighten2: "#4dd0e1",
+           CyanLighten1: "#26c6da",
+           Cyan: "#00bcd4",
+           CyanDarken1: "#00acc1",
+           CyanDarken2: "#0097a7",
+           CyanDarken3: "#00838f",
+           CyanDarken4: "#006064",
+           CyanAccent1: "#84ffff",
+           CyanAccent2: "#18ffff",
+           CyanAccent3: "#00e5ff",
+           CyanAccent4: "#00b8d4",
+           TealLighten3: "#80cbc4",
+           TealLighten2: "#4db6ac",
+           TealLighten1: "#26a69a",
+           Teal: "#009688",
+           TealDarken1: "#00897b",
+           TealDarken2: "#00796b",
+           TealDarken3: "#00695c",
+           TealDarken4: "#004d40",
+           TealAccent2: "#64ffda",
+           TealAccent3: "#1de9b6",
+           TealAccent4: "#00bfa5",
+           GreenLighten3: "#A5D6A7",
+           GreenLighten2: "#81C784",
+           GreenLighten1: "#66BB6A",
+           Green: "#4CAF50",
+           GreenDarken1: "#43A047",
+           GreenDarken2: "#388E3C",
+           GreenDarken3: "#2E7D32",
+           GreenDarken4: "#1B5E20",
+           GreenAccent4: "#00C853",
+           LightGreenDarken1: "#7cb342",
+           LightGreenDarken2: "#689f38",
+           LightGreenDarken3: "#558b2f",
+           LightGreenDarken4: "#33691e",
+           LimeDarken2: "#afb42b",
+           LimeDarken3: "#9e9d24",
+           LimeDarken4: "#827717",
+           YellowDarken4: "#f57f17",
+           AmberDarken3: "#ff8f00",
+           AmberDarken4: "#ff6f00",
+           OrangeDarken1: "#fb8c00",
+           OrangeDarken2: "#f57c00",
+           OrangeDarken3: "#ef6c00",
+           OrangeDarken4: "#e65100",
+           OrangeAccent3: "#ff9100",
+           OrangeAccent4: "#ff6d00",
+           DeepOrangeLighten2: "#ff8a65",
+           DeepOrangeLighten1: "#ff7043",
+           DeepOrange: "#ff5722",
+           DeepOrangeDarken1: "#f4511e",
+           DeepOrangeDarken2: "#e64a19",
+           DeepOrangeDarken3: "#d84315",
+           DeepOrangeDarken4: "#bf360c",
+           DeepOrangeAccent1: "#ff9e80",
+           DeepOrangeAccent2: "#ff6e40",
+           DeepOrangeAccent3: "#ff3d00",
+           DeepOrangeAccent4: "#dd2c00"
+         };
+
+         function hash(str) {
+           var hash = 0,
+             i,
+             chr;
+           if (str.length === 0) return hash;
+           for (i = 0; i < str.length; i++) {
+             chr = str.charCodeAt(i);
+             hash = (hash << 5) - hash + chr;
+             hash |= 0; // Convert to 32bit integer
+           }
+           return hash;
+         }
+
+         const COLORLIST = Object.values(COLORS);
+
+         function hashStringToColor(str) {
+           var h = hash(str);
+           let color = COLORLIST[Math.abs(h % COLORLIST.length)];
+           return color;
+         }
+         d3.json(
+           "https://api.github.com/repos/marcelklehr/floccus/commits?order=asc&sort=created&per_page=50",
+           function(commits) {
+             d3.json(
+               "https://api.github.com/gists/51b4015641802f4f275574ca98beed61",
+               function(gist) {
+                 const statsDb = JSON.parse(gist.files["index.json"].content);
+                 const rawData = commits
+                   .map(commit => ({
+                     sha: commit.sha,
+                     date: +new Date(commit.commit.committer.date) + "",
+                     data: statsDb[commit.sha]
+                   }))
+                   .filter(dot => !!dot.data)
+                   .map((dot, i) =>
+                     Object.assign({}, dot, { date: commits.length - i })
+                   );
+                 console.log(rawData);
+
+                 const all_labels = Object.keys(
+                   Object.assign({}, ...rawData.map(dot => dot.data))
+                 );
+
+                 drawGraph(
+                   ".test-graphs",
+                   "Test suite time",
+                   rawData,
+                   all_labels.filter(label => !~label.indexOf("benchmark")),
+                   "min"
+                 );
+
+                 drawGraph(
+                   ".benchmark-default-graphs",
+                   "Benchmark time (raw)",
+                   rawData,
+                   all_labels.filter(
+                     label =>
+                       ~label.indexOf("benchmark") && !~label.indexOf("parallel")
+                   ),
+                   "min"
+                 );
+
+                 drawGraph(
+                   ".benchmark-normalized-graphs",
+                   "Benchmark time (normalized)",
+                   rawData
+                   .filter(dot => dot.data[Object.keys(dot.data)[0]].normalizerTime)
+                   .map(dot => {
+                     const newDot = {...dot, data: {}}
+                     for (const label in dot.data) {
+                       newDot.data[label] = {}
+                       newDot.data[label].testSuiteTime = dot.data[label].testSuiteTime / dot.data[label].normalizerTime
+                     }
+                     return newDot
+                   }),
+                   all_labels.filter(
+                     label =>
+                       ~label.indexOf("benchmark")
+                   ),
+                   ''
+                 );
+
+                 drawGraph(
+                   ".test-normalized-graphs",
+                   "test suite time (normalized)",
+                   rawData
+                   .filter(dot => dot.data[Object.keys(dot.data)[0]].normalizerTime)
+                   .map(dot => {
+                     const newDot = {...dot, data: {}}
+                     for (const label in dot.data) {
+                       newDot.data[label] = {}
+                       newDot.data[label].testSuiteTime = dot.data[label].testSuiteTime / dot.data[label].normalizerTime
+                     }
+                     return newDot
+                   }),
+                   all_labels.filter(
+                     label =>
+                       !~label.indexOf("benchmark")
+                   ),
+                   ''
+                 );
+
+                 function drawGraph(target, title, rawData, labels, unit) {
+                   colors = labels.map(l => hashStringToColor(l));
+                   data = labels.map(label =>
+                     rawData
+                       .map(dot => ({
+                         date: dot.date,
+                         commit: dot,
+                         label,
+                         value:
+                           dot.data &&
+                           dot.data[label] &&
+                           dot.data[label].testSuiteTime
+                             ? dot.data[label].testSuiteTime
+                             : null
+                       }))
+                       .filter(dot => !!dot.value)
+                   );
+                   MG.data_graphic({
+                     title: title,
+                     data: data,
+                     missing_is_hidden: true,
+                     interpolate: d3.curveLinear,
+                     full_width: true,
+                     height: 700,
+                     right: 40,
+                     legend: labels,
+                     colors: colors,
+                     target: target,
+                     legend_target: ".does-not-exist",
+                     x_axis: false,
+                     x_accessor: "date",
+                     y_accessor: "value",
+                     mouseover: function(d, i) {
+                       d3.select(target + " svg .mg-active-datapoint").text(
+                         d.label + " " + d.value.toFixed(2) + unit
+                       );
+                     }
+                   });
+                 }
+               }
+             );
+           }
+         );
+       </script>
+    <div class="container bg-blue">
+      <div class="text footer">
+        <p>
+          (c) <a href="https://marcelklehr.de">Marcel Klehr</a>, Illustrations
+          by
+          <a href="https://undraw.co">Katerina Limpitsouni</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
