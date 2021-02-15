@@ -47,7 +47,7 @@ h3 {
     box-sizing: border-box;
     padding-left: 88px !important;
     background-repeat: no-repeat;
-    background-image: url("https://raw.githubusercontent.com/marcelklehr/floccus/develop/icons/logo_128.png");
+    background-image: url("https://raw.githubusercontent.com/floccusaddon/floccus/develop/icons/logo_128.png");
     background-position: 0px 55px;
     background-size: 70px 70px;
     color: #3893cc;
@@ -112,7 +112,7 @@ h3 {
 .screenshot {
     min-height: 400px;
     background-repeat: no-repeat;
-    background-image: url("https://raw.githubusercontent.com/marcelklehr/floccus/develop/img/screen_chrome_wide.png");
+    background-image: url("https://raw.githubusercontent.com/floccusaddon/floccus/develop/img/screen_chrome_wide.png");
     background-size: cover;
     background-position: right top;
     background-attachment: fixed;

@@ -18,4 +18,4 @@ Learn more on [how to get started](start.html).
 
 ## floccus source packages
 
-<a class="button" href="https://github.com/marcelklehr/floccus/releases">Show releases</a>
+<a class="button" href="https://github.com/floccusaddon/floccus/releases">Show releases</a>
