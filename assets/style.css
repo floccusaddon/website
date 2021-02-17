@@ -51,7 +51,7 @@ h3 {
     background-position: 0px 55px;
     background-size: 70px 70px;
     color: #3893cc;
-    width: 200px;
+    width: 258px;
 }
 .header h1 {
     margin: 0;
@@ -61,14 +61,18 @@ h3 {
 .header ul {
     padding: 0;
     position: relative;
-    left: -170px;
-    width: 450px;
+    left: -165px;
+    min-width: 410px;
     margin-top: 50px;
+    width: 60vw;
 }
 .header ul li {
     display: inline-block;
     list-style: none;
-    margin-right: 20px;
+    margin-right: 3.8%;
+}
+.header ul li:last-child {
+    margin: 0;
 }
 .header ul a:link {
     text-decoration: none;
