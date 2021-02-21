@@ -19,3 +19,6 @@ Learn more on [how to get started](start.html).
 ## floccus source packages
 
 <a class="button" href="https://github.com/floccusaddon/floccus/releases">Show releases</a>
+
+## Terms
+[Read more on how floccus deals with your personal data](./privacy) and [about your rights when using floccus](./privacy)
