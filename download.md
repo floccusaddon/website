@@ -5,7 +5,7 @@ description: "Download and install the browser extension."
 version: v4.5.0
 ---
 
-Learn more on [how to get started](start.html).
+Learn more on [how to get started](start).
 
 ## Mozilla Firefox
 <a class="button" href="https://addons.mozilla.org/en-US/firefox/addon/floccus/">Download {{page.version}}</a>
