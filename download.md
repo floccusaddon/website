@@ -2,7 +2,7 @@
 layout: page
 title: Download
 description: "Download and install the browser extension."
-version: v4.5.0
+version: v4.6.0
 ---
 
 Learn more on [how to get started](start).
