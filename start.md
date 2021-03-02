@@ -32,7 +32,7 @@ Your browser will ask you to confirm installation, including the permissions nec
 # 2. Add a sync account
 Once floccus is installed, you will find the floccus icon in your browser toolbar. Clicking on it will reveal the floccus overview panel.
 
-![Floccus overview panel](assets/img/screen_firefox_account.png)
+![Floccus overview panel](assets/img/screen_no_accounts.png)
 
 Click on "NEW ACCOUNT" to create a new sync account.
 
