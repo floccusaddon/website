@@ -255,12 +255,14 @@
                    ".benchmark-normalized-graphs",
                    "Benchmark time (normalized)",
                    rawData
-                   .filter(dot => dot.data[Object.keys(dot.data)[0]].normalizerTime)
+                   .filter(dot => Object.keys(dot.data).find(label => label.includes('benchmark') && label.includes('webdav')))
                    .map(dot => {
                      const newDot = {...dot, data: {}}
+                     const normLabel = Object.keys(dot.data).find(label => label.includes('benchmark') && label.includes('webdav'))
+                     const normTime = normLabel ? dot.data[normLabel].testSuiteTime : 1
                      for (const label in dot.data) {
                        newDot.data[label] = {}
-                       newDot.data[label].testSuiteTime = dot.data[label].testSuiteTime / dot.data[label].normalizerTime
+                       newDot.data[label].testSuiteTime = dot.data[label].testSuiteTime / normTime
                      }
                      return newDot
                    }),
@@ -275,12 +277,14 @@
                    ".test-normalized-graphs",
                    "test suite time (normalized)",
                    rawData
-                   .filter(dot => dot.data[Object.keys(dot.data)[0]].normalizerTime)
+                   .filter(dot => Object.keys(dot.data).find(label => !label.includes('benchmark') && label.includes('webdav')))
                    .map(dot => {
                      const newDot = {...dot, data: {}}
+                     const normLabel = Object.keys(dot.data).find(label => !label.includes('benchmark') && label.includes('webdav'))
+                     const normTime = normLabel ? dot.data[normLabel].testSuiteTime : 1
                      for (const label in dot.data) {
                        newDot.data[label] = {}
-                       newDot.data[label].testSuiteTime = dot.data[label].testSuiteTime / dot.data[label].normalizerTime
+                       newDot.data[label].testSuiteTime = dot.data[label].testSuiteTime / normTime
                      }
                      return newDot
                    }),

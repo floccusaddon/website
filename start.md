@@ -15,7 +15,7 @@ You will need a server to sync your bookmarks with.
 # 1. Install floccus
 Floccus is known to work in Chrome, Firefox, Edge, Opera, Vivaldi, Brave and Kiwi. Click on one of the following links to install floccus in your browser.
 
-* [Chrome Webstore](https://chrome.google.com/webstore/detail/floccus/fnaicdffflnofjppbagibeoednhnbjhg)
+* [Chrome Webstore](https://chrome.google.com/webstore/detail/floccus/fnaicdffflnofjppbagibeoednhnbjhg) (also applies for Opera, Vivaldi, Brave and Kiwi)
 * [Mozilla Addons](https://addons.mozilla.org/en-US/firefox/addon/floccus/)
 * [Edge Addons](https://microsoftedge.microsoft.com/addons/detail/gjkddcofhiifldbllobcamllmanombji)
 
@@ -44,16 +44,14 @@ Depending on which kind of server you are using, select the appropriate option h
 # 4. Configure account
 The following screen allows you to configure your sync account. You can always go back to this screen later.
 
-If you want to [sync via WebDAV, continue here](#webdav). Otherwise continue below with 'Nextcloud Bookmarks'.
+Depending on which kind of sync method you use, different options are available: If you want to [sync via WebDAV, continue here](#webdav). If you want to [sync via Google Drive, continue here](#google-drive).  Otherwise continue directly below with 'Nextcloud Bookmarks'.
 
 ## Nextcloud Bookmarks
 
 ![Account configuration](assets/img/screen_chrome_options.png)
 
-### Server details
 First you will need to enter your nextcloud URL. This should be the url that you use to access your nextcloud, e.g. `https://mycloud.provider.com`. Then enter your username and password. If you want to create a separate app password for floccus, click the button next to the user name field, which will direct you to your Nextcloud instance to approve the generation of an app password.
 
-### Folder mapping
 Now, you can configure the folder mapping. You can set one local bookmarks folder and one server folder per account.
 
 ![Folder mapping for Nextcloud Bookmarks](assets/img/screen_nc_folder_mapping.png)
@@ -64,11 +62,23 @@ The server folder defines the folder in your bookmarks app that should contain b
 
 You can also opt to sync currently open tabs instead of bookmarks. For this, select the 'Sync tabs' option.
 
+
+## Google Drive
+
+![Account configuration](assets/img/screen_gdrive_options.png)
+
+First you will need to connect floccus with your Google account. After clicking "Login with Google", you will need to sign in and grant floccus access to your Google Drive.
+
+The next option allows you to specify the path to your bookmarks file in your Drive storage. By default floccus will place a file called `bookmarks.xbel` in your topmost folder.
+
+If you'd like to encrypt your data before storing it in your Drive, you can set a passphrase here. If you don't enter anything, it won't be encrypted.
+
+Finally, you can choose which bookmarks folder to sync to that file. By default floccus will create a new folder for you,  to avoid syncing something that you don't want syned. However, with a click on the folder icon you can select any other folder in your bookmarks. Selecting the topmost "untitled" folder will sync everything.
+
 ## WebDAV
 
 ![WebDAV configuration](assets/img/screen_webdav_settings.png)
 
-### Server details
 First you will need to enter the WebDAV URL of your server. Here's a list of [the URLs for the most common public providers](https://community.cryptomator.org/t/webdav-urls-of-common-cloud-storage-services/75). The URL should end with a slash.
 Then enter your username and password. 
 

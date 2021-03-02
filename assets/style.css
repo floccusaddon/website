@@ -82,6 +82,16 @@ h3 {
 .header ul a:focus{
     text-decoration: underline;
 }
+@media screen and (max-width: 600px) {
+    .header ul {
+        left: 0;
+        width: auto;
+        min-width: auto;
+    }
+    .header ul li {
+        display: block;
+    }
+}
 .toc ul {
     padding-left: 0px;
 }
@@ -136,7 +146,7 @@ h3 {
     background-repeat: no-repeat;
     background-image: url("./img/undraw_devices.svg");
     background-size: 440px;
-    background-position: 100px 500px;
+    background-position: 100px 750px;
     padding-bottom: 375px !important;
     box-sizing: border-box;
 }
@@ -169,6 +179,7 @@ h3 {
 }
 .backends .featureGrid .box {
     margin-right: 40px;
+    width: 350px;
 }
 .backends .featureGrid .box:last-child {
     margin-right: 0px;

@@ -10,7 +10,7 @@ Learn more on [how to get started](start).
 ## Mozilla Firefox
 <a class="button" href="https://addons.mozilla.org/en-US/firefox/addon/floccus/">Download {{page.version}}</a>
 
-## Google Chrome
+## Google Chrome, Opera, Vivaldi, Brave and Kiwi
 <a class="button" href="https://chrome.google.com/webstore/detail/floccus/fnaicdffflnofjppbagibeoednhnbjhg">Download {{page.version}}</a>
 
 ## Microsoft Edge
