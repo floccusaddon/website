@@ -13,8 +13,6 @@ Learn more on [how to get started](start).
 ## Google Chrome, Opera, Vivaldi, Brave and Kiwi
 <a class="button" href="https://chrome.google.com/webstore/detail/floccus/fnaicdffflnofjppbagibeoednhnbjhg">Download {{page.version}}</a>
 
-**Notice:** floccus is currently unavailable on Google's Chrome Web Store due to an unexpected removal from Google. More updates [on twitter](https://twitter.com/floccusAddon).
-
 ## Microsoft Edge
 <a class="button" href="https://microsoftedge.microsoft.com/addons/detail/gjkddcofhiifldbllobcamllmanombji">Download {{page.version}}</a>
 
