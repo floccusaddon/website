@@ -11,7 +11,7 @@ You will need a server to sync your bookmarks with.
 
 * Your sync server can also be a [Nextcloud](https://nextcloud.com) server, which you can host yourself or sign up for an existing instance, with the [Bookmarks App](https://github.com/nextcloud/bookmarks) installed. Syncing with Nextcloud Bookmarks allows you to view your bookmarks with a nice web interface.
 
-* Thirdly, you may use any server that supports [WebDAV](https://en.wikipedia.org/wiki/WebDAV). There is a number of [public services supporting WebDAV access](https://community.cryptomator.org/t/webdav-urls-of-common-cloud-storage-services/75), but you can also use [LoFloccus](https://github.com/TCB13/LoFloccus) as a companion app to sync to a file on your disk.
+* Thirdly, you may use any server that supports [WebDAV](https://en.wikipedia.org/wiki/WebDAV). There is a number of [public services supporting WebDAV access](https://community.cryptomator.org/t/webdav-urls-of-common-cloud-storage-services/75), or you can use a bare [Nextcloud](https://nextcloud.com) server without the Bookmarks app, or you can use [LoFloccus](https://github.com/TCB13/LoFloccus) as a companion app to sync to a file on your local disk.
 
 # 1. Install floccus
 Floccus is known to work in Chrome, Firefox, Edge, Opera, Vivaldi, Brave and Kiwi. Click on one of the following links to install floccus in your browser.
@@ -25,10 +25,14 @@ Your browser will ask you to confirm installation, including the permissions nec
 
 | Permission           | Explanation                                                                                                                                                                                                                                                                                                                                                          |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| storage, unlimitedStorage | Necessary for maintaining a cache and mappings between server and browser bookmarks                                                                                                                                                                                                                                                                                  |
-| alarms               | Necessary for triggering synchronization in regular intervals                                                                                                                                                                                                                                                                                                        |
-| bookmarks            | Necessary for creating and reading bookmarks                                                                                                                                                                                                                                                                                                                         |
+| storage, unlimitedStorage | Necessary for maintaining a cache and mappings between server and browser bookmarks|
+| | |
+| alarms               | Necessary for triggering synchronization in regular intervals|
+| | |
+| bookmarks            | Necessary for creating and reading bookmarks|
+| | |
 | Unlimited web access | Necessary for accessing your self-hosted server. This cannot be limited, because everybody's server has a different URL. Unfortunately, the way webextensions work currently, floccus also gets access to all the data the browser has collected on those websites. However, floccus makes no use of that data and doesn't in any way collect information about you. |
+| | |
 | identity             | Necessary for connecting with Google Drive |
 
 # 2. Add a sync account
