@@ -108,8 +108,8 @@ h3 {
 .description {
     box-sizing: border-box;
     padding-left: 450px;
-    min-height: 350px;
-    font-size: 1.2em;
+    min-height: 400px;
+    font-size: 1.6em;
     background-repeat: no-repeat;
     background-image: url("./img/undraw_in_sync.svg");
     background-size: 420px;
