@@ -13,6 +13,8 @@ You will need a server to sync your bookmarks with.
 
 * Thirdly, you may use any server that supports [WebDAV](https://en.wikipedia.org/wiki/WebDAV). There is a number of [public services supporting WebDAV access](https://community.cryptomator.org/t/webdav-urls-of-common-cloud-storage-services/75), or you can use a bare [Nextcloud](https://nextcloud.com) server without the Bookmarks app, or you can use [LoFloccus](https://github.com/TCB13/LoFloccus) as a companion app to sync to a file on your local disk.
 
+* Make a backup of your bookmarks. Whenever you are syncing data, you should make regular backups to avoid losing data due to bugs or misconfiguration.
+
 # 1. Install floccus
 Floccus is known to work in Chrome, Firefox, Edge, Opera, Vivaldi, Brave and Kiwi. Click on one of the following links to install floccus in your browser.
 
