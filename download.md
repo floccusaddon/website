@@ -20,9 +20,8 @@ Learn more on [how to get started](start).
 
 <a class="button" href="https://github.com/floccusaddon/floccus/releases">Show releases</a>
 
-## Donate
-**Developing and maintaining this software, while fun, is also a lot of work.**  
-If you like using floccus, I would appreciate a recurring donation from you to give back and support the creation of this project. Any amount, no matter how small, is appreciated. Thank you 💙
+## Support
+Work on floccus is fuelled by a voluntary subscription model. If you think what I do is worthwhile, and if you can spare a few coins each month without hardship, please support my work. Also, please consider giving floccus a rating on the addon store of your choice. Thank you!💙
 
 * [Github sponsors](https://github.com/sponsors/marcelklehr)
 * [Liberapay](https://liberapay.com/marcelklehr/donate)
