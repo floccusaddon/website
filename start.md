@@ -102,3 +102,29 @@ It should now show your newly created sync account. Floccus will sync automatica
 ![Floccus overview panel](assets/img/screen_firefox_account.png)
 
 That's it. Your bookmarks are now synced with the server of your choosing.
+
+# Sync strategies
+Floccus supports unidirectional sync as well two-directional "normal" sync.
+
+In normal mode changes from your local browser are merged with changes from other browsers, which is usually desired in a syncing solution.
+
+Sometimes you want to have one device as a main device and other devices only as listeners. For this scenario you can set the main device to push sync
+and all others to pull sync to override their changes with the change from the main device.
+
+Occasionally you want to override changes from other devices. For this you can use a one-time push. In order to undo local changes you can od a one-time pull to
+revert all your local cahnges with the latest server state.
+
+# Syncing tabs
+Instead of syncing a local bookmarks folder, floccus can optionally sync your open browser tabs.
+
+## Auto-push
+You can Enable auto-sync but set sync strategy to push.
+This will automatically push your currently open tabs to the server.
+Whenever you need the tabs on a different browser or after a crash, you can pull once to get the tabs back.
+
+## Manual push and pull
+Auto-push can sometimes cause surprises when you have it enabled on multiple devices or when an empty session is pushed after a browser crash,
+overriding the previously stored session.
+
+You can also turn off auto-sync and push and pull your tabs manually, i.e. when you want to switch to a different device
+push your open tabs once on device A and pull once on device B -- et voila, all your tabs are opened on the new device.
