@@ -15,6 +15,13 @@ Alternatively, if you're syncing via Nextcloud bookmarks, you may use one of its
 # Does floccus support bookmarks tags in Firefox?
 Unfortunately not, Mozilla has not yet added an API for interacting with native tags. However, floccus will not touch your tags.
 
+# How are brower-internal URLs treated?
+Browser-internal URLs like `chrome://` URLs are currently ignored and left alone. They may be supported in the future.
+
+# How are non-HTTP URLs treated?
+Since Nextcloud Bookmarks currently only supports HTTP links, URLs with any other schemes are ignored and left alone, when syncing via Nextcloud Bookmarks.
+When syncing via WebDAV or Google Drive, `http(s):`, `ftp:, data: and `javascript:` bookmarks are supported.
+
 # Does floccus track usage data at all?
 No. Floccus does not track you in any way. The only network traffic initiated by floccus is syncing your bookmarks to the server of your choosing. That's it.
 
