@@ -7,10 +7,10 @@ description: "Find out more about how floccus does its magic."
 # Which browsers are supported by floccus?
 Currently floccus supports Chromium, Google Chrome, Mozilla Firefox, Opera, Brave, Vivaldi and Microsoft Edge.
 
-# How can I access my bookmarks on my phone?
+# How can I access my bookmarks on my Android phone?
 The only mobile browser to support extensions that interact with bookmarks is currently the free Kiwi browser.
 
-Alternatively, if you're syncing via Nextcloud bookmarks, you may use one of its companion mobile apps.
+I'm currently working on an Android app for floccus. If you'd like to get an early glimpse you can [help test it](https://github.com/floccusaddon/floccus/discussions/962).
 
 # Does floccus support bookmarks tags in Firefox?
 Unfortunately not, Mozilla has not yet added an API for interacting with native tags. However, floccus will not touch your tags.
