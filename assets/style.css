@@ -139,16 +139,25 @@ h3 {
     background-repeat: no-repeat;
     background-image: url("./img/undraw_love.svg");
     background-size: 440px;
-    background-position: 270px 118px;
+    background-position: 300px 100px;
     padding-right: 310px;
 }
 .backends {
     background-repeat: no-repeat;
     background-image: url("./img/undraw_devices.svg");
     background-size: 440px;
-    background-position: 100px 750px;
+    background-position: 100px 780px;
     padding-bottom: 375px !important;
     box-sizing: border-box;
+}
+.contribute {
+    box-sizing: border-box;
+    min-height: 350px;
+    background-repeat: no-repeat;
+    background-image: url("./img/undraw_team.svg");
+    background-size: 400px;
+    background-position: -10px 170px;
+    padding-left: 450px;
 }
 @media screen and (max-width: 800px) {
     .backends {
