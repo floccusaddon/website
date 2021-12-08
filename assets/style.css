@@ -101,6 +101,8 @@ h3 {
 .text {
     padding: 10px 0;
     position: relative;
+    padding-top: 42px !important;
+    padding-bottom: 42px !important;
 }
 .text img {
     width: 100%;
