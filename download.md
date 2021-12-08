@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Download
-description: "Download and install the browser extension."
-version: v4.7.0
+description: "Download and install floccus on various platforms and browsers"
+version: v4.8.6
 ---
 
 Learn more on [how to get started](start).
@@ -15,6 +15,9 @@ Learn more on [how to get started](start).
 
 ## Microsoft Edge
 <a class="button" href="https://microsoftedge.microsoft.com/addons/detail/gjkddcofhiifldbllobcamllmanombji">Download {{page.version}}</a>
+
+## Android
+<a class="button" href="https://play.google.com/store/apps/details?id=org.handmadeideas.floccus">Download {{page.version}}</a>
 
 ## floccus source packages
 

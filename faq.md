@@ -8,9 +8,9 @@ description: "Find out more about how floccus does its magic."
 Currently floccus supports Chromium, Google Chrome, Mozilla Firefox, Opera, Brave, Vivaldi and Microsoft Edge.
 
 # How can I access my bookmarks on my Android phone?
-The only mobile browser to support extensions that interact with bookmarks is currently the free Kiwi browser.
+A Floccus Android app is available in an open beta [from the Downloads page](/download)
 
-I'm currently working on an Android app for floccus. If you'd like to get an early glimpse you can [help test it](https://github.com/floccusaddon/floccus/discussions/962).
+The only mobile browser to support extensions that interact with bookmarks is currently the free Kiwi browser.
 
 # Does floccus support bookmarks tags in Firefox?
 Unfortunately not, Mozilla has not yet added an API for interacting with native tags. However, floccus will not touch your tags.
