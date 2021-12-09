@@ -22,6 +22,10 @@ version: v4.8.6
      <i class="mdi mdi-android"></i>
      <h3><a class="button" href="https://play.google.com/store/apps/details?id=org.handmadeideas.floccus">Floccus for Android</a></h3>
    </div>
+    <div class="box">
+     <i class="mdi mdi-open-source-initiative"></i>
+     <h3><a class="button" href="https://apt.izzysoft.de/fdroid/">Floccus on F-Droid</a></h3>
+   </div>
    <div class="box">
      <i class="mdi mdi-package-variant"></i>
      <h3><a class="button" href="https://github.com/floccusaddon/floccus/releases">Source packages</a></h3>
