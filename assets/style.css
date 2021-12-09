@@ -165,6 +165,10 @@ h3 {
     .backends {
         padding-bottom: 0px !important;
     }
+    .contribute {
+        padding-bottom: 300px !important;
+        background-position: 100px 422px;
+    }
 }
 .benchmarks .legend span {
     display: block;
@@ -205,9 +209,12 @@ h3 {
     line-height: 165px;
 }
 @media screen and (max-width: 800px) {
+    .featureGrid {
+        justify-content: center;
+    }
     .backends .featureGrid .box {
         width: auto;
-        margin-right: 0px;
+        margin-right: 0;
     }
     .text,
     .description {
