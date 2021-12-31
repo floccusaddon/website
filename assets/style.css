@@ -125,6 +125,20 @@ h3 {
         background-position: center 60px;
     }
 }
+.news {
+    padding-top: 0 !important;
+    padding-bottom: 45px !important;
+}
+.news p {
+    color: orangered;
+    background: #ffe1a9;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+.news p * {
+    color: orangered;
+}
 .screenshot {
     min-height: 400px;
     background-repeat: no-repeat;
