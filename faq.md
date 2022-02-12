@@ -41,3 +41,9 @@ No, any other sync tool affecting your browser bookmarks will lead to duplicatio
 Browsers usually do not allow you to create items in the toplevel root folder (/), that space is reserved for special folders like Mobile bookmarks, Bookmarks bar, Other bookmarks. Any attempts by floccus to create items inside the root folder (whether in Kiwi or on any other Browser) will fail. The intention is that the built-in Sync mechanism of the browser vendor or some other native browser process will create and manage these folders, so it's by design that extensions are not able to write to it.
 
 If you are missing some toplevel folders on a browser, try setting a different local folder to sync to in the floccus settings. E.g. instead of syncing to the absolute root folder, sync to a folder one level deeper, like Bookmarks Bar on Desktop or Mobile Bookmarks on mobile.
+
+# Floccus suddenly won't stop syncing one of my accounts. What can I do?
+Floccus employs a locking mechanism to avoid manipulating data on the server from two browsers at the same time. Sometimes, when closing a browser while floccus is syncing,
+this lock is not removed. On the next browser start floccus will then wait for the lock to be released and appear to be syncing for a long time without doing anything.
+
+After half an hour of trying floccus will override the lock and start its own sync run. So, after half an hour, things should be fine without you having to intervene.
