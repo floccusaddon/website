@@ -15,7 +15,7 @@ The only mobile browser to support extensions that interact with bookmarks is cu
 # Does floccus support bookmarks tags in Firefox?
 Unfortunately not, Mozilla has not yet added an API for interacting with native tags. However, floccus will not touch your tags.
 
-# How are brower-internal URLs treated?
+# How are browser-internal URLs treated?
 Browser-internal URLs like `chrome://` URLs are currently ignored and left alone. They may be supported in the future.
 
 # How are non-HTTP URLs treated?
