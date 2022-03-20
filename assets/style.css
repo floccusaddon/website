@@ -175,6 +175,14 @@ h3 {
     background-position: -10px 170px;
     padding-left: 450px;
 }
+.features {
+    box-sizing: border-box;
+    min-height: 700px;
+    background-repeat: no-repeat;
+    background-image: url("./img/floccus_schema.png");
+    background-size: 800px;
+    background-position: 0 100px;
+}
 @media screen and (max-width: 800px) {
     .backends {
         padding-bottom: 0px !important;
@@ -182,6 +190,11 @@ h3 {
     .contribute {
         padding-bottom: 300px !important;
         background-position: 100px 422px;
+    }
+    .features {
+        background-size: 400px;
+        min-height: 450px;
+        background-position: 50% 100px;
     }
 }
 .benchmarks .legend span {
